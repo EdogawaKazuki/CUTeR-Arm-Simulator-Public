@@ -1,3 +1,6 @@
+using_cartesian_point = True
+
+
 # output the trajectory
 # the result should be a 2d (3*n) list
 # each row represents a servo, each column represents a frame using three angles for the three servo
@@ -17,3 +20,12 @@ def generate_trajectory():
 
     return [angle_0_list, angle_1_list, angle_2_list]
 
+
+def generate_trajectory_cartesian_point():
+    x_list = [i/10 for i in range(1, 100)]
+    y_list = [i/10 for i in range(1, 100)]
+    z_list = [i/10 for i in range(1, 100)]
+    x_list += reversed(x_list)
+    y_list += reversed(y_list)
+    z_list += reversed(z_list)
+    return [x_list, y_list, z_list]

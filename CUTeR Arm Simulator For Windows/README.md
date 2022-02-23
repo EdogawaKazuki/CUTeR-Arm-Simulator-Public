@@ -1,7 +1,7 @@
-- First finish the generate_trajectory function in 'Trajectory.py'
-- Second run 'python main.py'
-    - A new txt file named 'trajectory.txt' should be generated.
-- Then double click 'CUTeR ARM Simulator.exe' to run the simulator.
+- First finish the generate_trajectory or generate_path function in 'Trajectory.py'
+- Second run 'python StartServer.py'
+- If you want to use trajectory file, run 'python GenerateTrajectory.py' to get 'trajectory.txt'  
+- Then double click 'CUTeR Virtual Environment Builder.exe' to run the simulator.
     - Click the setting button on the top left and open the setting panel.
     - You can click the "Select..." button to load trajectory.
     - You can also first click "Connect" and then click "Trajectory Mode" to load trajectory.
@@ -9,4 +9,4 @@
 - View navigation
     - Move: Hold middle mouse button, then drag.
     - Orbit: Hold right mouse button, then drag.
-    - Zoom: Use the scroll whell.
+    - Zoom: Use the scroll wheel.

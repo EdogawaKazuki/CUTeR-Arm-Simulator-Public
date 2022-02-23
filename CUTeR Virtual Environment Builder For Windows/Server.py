@@ -26,6 +26,7 @@ is_playing = False
 robot_joint_angle = [90, 180, 10]
 fire = False 
 
+
 # control robot arm according to the trajectory list
 def process_trajectory():
     global fire
@@ -43,10 +44,9 @@ def process_trajectory():
         else:
             break
 
-last_time = time.time()
+
 # handle request from application
 def handle_request():
-    global last_time
     global robot_joint_angle
     global is_playing
     global fire
