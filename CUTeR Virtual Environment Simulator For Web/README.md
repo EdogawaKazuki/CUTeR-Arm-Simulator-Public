@@ -9,4 +9,10 @@
     - Move: Hold middle mouse button, then drag.
     - Orbit: Hold right mouse button, then drag.
     - Zoom: Use the scroll whell.
-- To load objects or scenes, click the first top right button to upload files first.
+- To load objects or scenes, please click the first top right button to upload files, then you can choose the scene(object) in the 'load scene(object) menu'.
+- Now you can add trajectory to objects!
+    - Click the object and you can find the add trajectory option appears on the attribute panel.
+    - After adding trajectory to object and turn on the switch. Once you click the start trajectory button on the top of the screen, the object will act as the added trajectory.
+    - The object will ignore all physical rules but move as the trajectory described.
+- A solid object (with rigidbody) will stop if it pass the grab point (the semi-transparent cube on the head of the grabber) for you to grab. The object will continue its movement if you just move the robot arm and let the object leave the grab point.
+- You need to attach the trajectory file to the object every time you load the scene (will be fixed later).
