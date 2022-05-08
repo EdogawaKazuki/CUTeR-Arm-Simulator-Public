@@ -1,3 +1,4 @@
+using_cartesian_point = False
 # output the trajectory
 # the result should be a 2d (6*n) list
 # each row represents a servo, each column represents a frame using three angles for the three servo

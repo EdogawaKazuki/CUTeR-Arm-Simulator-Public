@@ -23,7 +23,7 @@ is_playing = -1
 
 
 # init robot angle
-robot_joint_angle = [0, 180, -170]
+robot_joint_angle = [0, 180, -170, 0, 0, 0]
 fire = False 
 prefix = ''
 
@@ -45,7 +45,7 @@ def process_trajectory():
             if angle_lists[0][i] == "fire":
                 fire = True
                 continue
-            for j in range(3):
+            for j in range(6):
                 robot_joint_angle[j] = angle_lists[j][i]
             time.sleep(1/50)
         elif is_playing == 0:
@@ -76,18 +76,23 @@ def handle_request():
                 print(robot_joint_angle)
                 if fire:
                     angle_str = prefix + "fire," + str(robot_joint_angle[0]) + "," + str(robot_joint_angle[1]) + \
-                                "," + str(robot_joint_angle[2]) + ",end"
+                                "," + str(robot_joint_angle[2]) + "," + str(robot_joint_angle[3]) + "," + str(robot_joint_angle[4]) + \
+                                "," + str(robot_joint_angle[5]) + ",end"
                     fire = False
                 else:
                     angle_str = prefix + str(robot_joint_angle[0]) + "," + str(robot_joint_angle[1]) + \
-                            "," + str(robot_joint_angle[2]) + ",end"
-                # print("send:", angle_str)
+                                "," + str(robot_joint_angle[2]) + "," + str(robot_joint_angle[3]) + "," + str(robot_joint_angle[4]) + \
+                                "," + str(robot_joint_angle[5]) + ",end"
+                print("send:", angle_str)
                 sock.sendto(angle_str.encode('UTF-8'), address)
             elif data[0] == "post":
-                # print("receive:", data[1], data[2], data[3])
+                print("receive:", data[1], data[2], data[3], data[4], data[5], data[6])
                 robot_joint_angle[0] = data[1]
                 robot_joint_angle[1] = data[2]
                 robot_joint_angle[2] = data[3]
+                robot_joint_angle[3] = data[4]
+                robot_joint_angle[4] = data[5]
+                robot_joint_angle[5] = data[6]
                 prefix = ''
             elif data[0] == "play":
                 if is_playing == 0:
@@ -101,6 +106,9 @@ def handle_request():
                 robot_joint_angle[0] = data[1]
                 robot_joint_angle[1] = data[2]
                 robot_joint_angle[2] = data[3]
+                robot_joint_angle[3] = data[4]
+                robot_joint_angle[4] = data[5]
+                robot_joint_angle[5] = data[6]
                 is_playing = -1
             elif data[0] == "pause":
                 is_playing = 0
